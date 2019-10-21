@@ -4,7 +4,7 @@ namespace ADABlog\Model;
 use \ADABlog\Fram\Manager;
 use \ADABlog\Entity\User;
 
-class UsersManager extends Manager
+abstract class UsersManager extends Manager
 {
     abstract public function add(User $user);
     abstract public function get($login);

@@ -24,7 +24,7 @@ class SubscriptionController extends BackController
                 'group' => $request->postData('group')
             ]);
 
-             $this->managers->getManagerOf('user')->add($user);
+             $this->managers->getManagerOf('users')->add($user);
         }
 
     }
