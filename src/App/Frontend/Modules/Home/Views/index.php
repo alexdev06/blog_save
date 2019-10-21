@@ -1,5 +1,3 @@
-<h2 style="text-align: center"><?= $title ?></h2>
-
 <header>
     <div class="container">
         <div class="row">
