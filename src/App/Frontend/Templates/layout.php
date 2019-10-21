@@ -57,7 +57,7 @@
                             <a href="/news">Les news</a>
                         </li>
                         <li>
-                            <a href="/inscription">Inscription</a>
+                            <a href="/subscription">Inscription</a>
                         </li>
                         <li>
                             <?php
