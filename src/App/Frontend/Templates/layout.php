@@ -2,7 +2,6 @@
 <html lang="fr">
 
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +27,6 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
     </head>
 
     <body id="page-top" class="index">
@@ -63,7 +61,7 @@
                             <?php
                             if ($this->app->userx()->isAuthenticated() == true) {
                                 ?>
-                                <a href="/admin">Administration</a>
+                                <a href="/admin-home">Administration</a>
                             <?php
                             } else {
                                 ?>
@@ -90,11 +88,10 @@
 
 
         <!-- Content Section -->
-        <section id="news">
-            <div class="row">
-            </div>
+        <section>
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 mt-5">
+                    <div class="col-lg-12 mt-5">
                         <?= $content ?> 
                     </div>
                 </div>

@@ -7,5 +7,6 @@
   <label>Mot de passe :</label><br />
   <input type="password" name="password" /><br /><br />
   
-  <input type="submit" value="Connexion" />
+  <input class="btn btn-success btn" type="submit" value="Connexion" />
+  <input class="btn btn-success btn-"type="reset" value="Réinitialiser" />
 </form>
