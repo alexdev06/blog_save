@@ -7,7 +7,7 @@ class UsersManagerPDO extends UsersManager
 {
     public function add(User $user)
     {
-        $q = $this->dao->prepare('INSERT INTO user VALUES(NULL, :name, :last_name, :username, :email, :password, NULL)');
+        $q = $this->dao->prepare('INSERT INTO user VALUES(NULL, :name, :last_name, :username, :email, :password, NULL, NULL)');
         $q->bindValue(':name' , $user->name());
         $q->bindValue(':last_name', $user->last_name());
         $q->bindValue('username', $user->username());
@@ -21,7 +21,7 @@ class UsersManagerPDO extends UsersManager
 
     public function get($login)
     {
-        $q = $this->dao->prepare('SELECT username, password FROM user WHERE username = :username');
+        $q = $this->dao->prepare('SELECT username, password, member_status, administrator_status FROM user WHERE username = :username');
         $q->bindValue(':username',$login);
 
         $q->execute();
@@ -34,7 +34,7 @@ class UsersManagerPDO extends UsersManager
 
     public function getList()
     {
-        $q = $this->dao->query('SELECT name, last_name, username, email, status FROM user');
+        $q = $this->dao->query('SELECT id, name, last_name, username, email, member_status, administrator_status FROM user');
         $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\User');
         
         $listeUsers = $q->fetchAll();
@@ -45,10 +45,13 @@ class UsersManagerPDO extends UsersManager
 
     }
 
-    public function changeStatus(User $user)
+    public function modifyMemberStatus(User $user)
     {
-        $requete = $this->dao->prepare('UPDATE user SET status = :status');
-        $requete->bindValue(':status', $user->status());
+        $requete = $this->dao->prepare('UPDATE user SET member_status = :member_status');
+        if ($user->administrator_status() == false) {
+            $requete->bindValue(':member_status', true);
+            $requete->execute();
+        }
 
         $requete->execute();
     }

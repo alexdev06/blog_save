@@ -21,11 +21,16 @@ class ConnexionController extends BackController
             $isPasswordCorrect = password_verify($password, $user->password());
 
             if ($user->username() == $login && $isPasswordCorrect){
-
-                $this->app->userx()->setAuthenticated(true);
-                $this->app->httpResponse()->redirect('/admin-home');
+                if ($user->administrator_status() == true) {
+                    $this->app->visitor()->setAuthenticated(true);
+                    $this->app->visitor()->setAdministrator(true);
+                    $this->app->httpResponse()->redirect('/news');
+                } else {
+                    $this->app->visitor()->setAuthenticated(true);
+                    $this->app->httpResponse()->redirect('/admin-home');
+                }
             } else {
-                $this->app->userx()->setFlash('Pseudo ou mot de passe incorrect');
+                $this->app->visitor()->setFlash('Pseudo ou mot de passe incorrect');
             }
         }
     }

@@ -15,6 +15,12 @@ class HomeController extends BackController
             $this->page->addVar('nombreNews', $manager->count());
     
             $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOfUnpublished());
+
+            if ($this->app->visitor()->isAdministrator()) {
+                $manager = $this->managers->getManagerOf('Users');
+                $this->page->addVar('listeUsers', $manager->getList());
+
+            }
         }
 
 }

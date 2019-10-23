@@ -3,7 +3,7 @@ namespace ADABlog\Fram;
 
 session_start();
 
-class Userx
+class Visitor
 {
   public function getAttribute($attr)
   {
@@ -35,12 +35,25 @@ class Userx
 
   public function setAuthenticated($authenticated = true)
   {
-    if (!is_bool($authenticated))
-    {
+    if (!is_bool($authenticated)) {
       throw new \InvalidArgumentException('La valeur spécifiée à la méthode User::setAuthenticated() doit être un boolean');
-    }
+      }
 
     $_SESSION['auth'] = $authenticated;
+  }
+
+  public function setAdministrator($administrator = true)
+  {
+    if (!is_bool($administrator)) {
+    throw new \InvalidArgumentException('La valeur spécifiée à la méthode Userx::setAdministrator() doit être un boolean');
+    }
+
+    $_SESSION['adm'] = $administrator;
+  }
+
+  public function isAdministrator()
+  {
+    return isset($_SESSION['auth']) && $_SESSION['auth'] === true && isset($_SESSION['adm']) && $_SESSION['adm'] === true;
   }
 
   public function setFlash($value)

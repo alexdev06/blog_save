@@ -8,4 +8,6 @@
     <route url="/admin-news-delete-([0-9]+)\.html" module="News" action="delete" vars="id" ></route>
     <route url="/admin-comments-delete-([0-9]+)\.html" module="Comments" action="delete" vars="id"></route>
     <route url="/admin-comments-validate-([0-9]+)\.html" module="Comments" action="validate" vars="id"></route>
+    <route url="/admin-users" module="Users" action="index"></route>
+    <route url="/admin-users-delete-([0-9]+)\.html" module="Users" action="delete" vars="id"></route>
 </routes>

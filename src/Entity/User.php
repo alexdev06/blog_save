@@ -10,7 +10,8 @@ class User extends Entity
     protected $username;
     protected $email;
     protected $password;
-    protected $status;
+    protected $member_status;
+    protected $administrator_status;
 
     // SETTERS
 
@@ -39,9 +40,14 @@ class User extends Entity
         $this->password = $password;
     }
 
-    public function setStatus($status)
+    public function setMember_status($status)
     {
-        $this->status = $status;
+        $this->member_status = $status;
+    }
+
+    public function setAdministrator_Status($status)
+    {
+        $this->administrator_status = $status;
     }
 
 
@@ -72,8 +78,12 @@ class User extends Entity
         return $this->password;
     }
 
-    public function status()
+    public function member_status()
     {
-        return $this->status;
+        return $this->member_status;
+    }
+    public function administrator_status()
+    {
+        return $this->administrator_status;
     }
 }

@@ -29,3 +29,23 @@ foreach ($comments as $comment)
 }
 ?>
 </table>
+
+<?php
+
+if (isset($listeUsers)) {
+  ?>
+  <h3>Gestion des utilisateurs</h3>
+  <table class="table table-striped mt5">
+  <thead class="thead-dark">
+  <tr><th>Prénom</th><th>Nom</th><th>Nom d'utilisateur</th><th>Email</th><th>Statut de membre</th></tr>
+      </thead>
+  <?php
+  foreach ($listeUsers as $user)
+  {
+    echo '<tr><td>', $user['name'], '</td><td>', $user['last_name'], '</td><td>', $user['username'],'</td><td>', $user['email'],'</td><td>', $user['member_status'],'</td></tr>', "\n";
+  }
+  ?>
+  </table>
+  <?php
+}
+?>

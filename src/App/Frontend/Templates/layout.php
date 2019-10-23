@@ -59,7 +59,7 @@
                         </li>
                         <li>
                             <?php
-                            if ($this->app->userx()->isAuthenticated() == true) {
+                            if ($this->app->visitor()->isAuthenticated() == true) {
                                 ?>
                                 <a href="/admin-home">Administration</a>
                             <?php
@@ -71,7 +71,7 @@
                             ?>
                         </li>
                         <?php 
-                        if ($this->app->userx()->isAuthenticated() == true) {
+                        if ($this->app->visitor()->isAuthenticated() == true) {
                             ?>
                             <li>
                                 <a href="/admin-destroy">Deconnexion</a>
