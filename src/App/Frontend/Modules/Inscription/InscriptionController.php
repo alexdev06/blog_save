@@ -1,13 +1,13 @@
 <?php
-namespace ADABlog\App\Frontend\Modules\Subscription;
+namespace ADABlog\App\Frontend\Modules\Inscription;
 
 use ADABlog\Fram\BackController;
 use ADABlog\Fram\HTTPRequest;
 use ADABlog\Entity\User;
 
-class SubscriptionController extends BackController
+class InscriptionController extends BackController
 {
-    public function executeSubRequest(HTTPRequest $request)
+    public function executeInscRequest(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Ajout d\'un utilisateur');
 
@@ -21,7 +21,6 @@ class SubscriptionController extends BackController
                 'username' => $request->postData('username'),
                 'email' => $request->postData('email'),
                 'password' => $pass,
-                'group' => $request->postData('group')
             ]);
 
              $this->managers->getManagerOf('users')->add($user);
