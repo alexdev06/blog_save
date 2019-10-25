@@ -1,5 +1,5 @@
 <?php
-namespace ADABlog\App\Backend\Modules\Connexion;
+namespace ADABlog\App\Frontend\Modules\Connexion;
 
 use \ADABlog\Fram\BackController;
 use \ADABlog\Fram\HTTPRequest;
@@ -7,7 +7,7 @@ use \ADABlog\Fram\HTTPRequest;
 
 class ConnexionController extends BackController
 {
-    public function executeIndex(HTTPRequest $request)
+    public function executeIdentification(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Connexion');
 
@@ -24,14 +24,16 @@ class ConnexionController extends BackController
                 if ($user->administrator_status() == true) {
                     $this->app->visitor()->setAuthenticated(true);
                     $this->app->visitor()->setAdministrator(true);
-                    $this->app->httpResponse()->redirect('admin-home');
-                } else {
+                    $this->app->httpResponse()->redirect('/admin-news');
+                } elseif ($user->member_status() == 1 && $user->administrator_status() == 0) {
                     $this->app->visitor()->setAuthenticated(true);
-                    $this->app->httpResponse()->redirect('/admin-home');
+                    $this->app->httpResponse()->redirect('/admin-news');
+                } else {
+                    $this->app->httpResponse()->redirect('/news');
                 }
             } else {
                 $this->app->visitor()->setFlash('Pseudo ou mot de passe incorrect');
-                $this->app->httpResponse()->redirect('/admin');
+                $this->app->httpResponse()->redirect('/connexion');
             }
         }
     }

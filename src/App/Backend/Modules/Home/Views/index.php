@@ -4,7 +4,7 @@
 <h3>Liste des news</h3>
 <p style="text-align: center">Il y a actuellement <?= $nombreNews ?> news :</p>
 
-<table class="table table-striped">
+<table id="usetTable" class="table">
   <thead class="thead-dark">
     <tr><th>Auteur</th><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
   </thead>
@@ -17,7 +17,7 @@ foreach ($listeNews as $news)
 </table>
 
 <h3>Commentaires en attente de validation</h3>
-<table class="table table-striped">
+<table class="table">
   <thead class="thead-dark">
     <tr><th>Auteur</th><th>Contenu</th><th>Date d'ajout</th><th>Action</th></tr>
   </thead>

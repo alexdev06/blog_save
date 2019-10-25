@@ -17,11 +17,11 @@
         if (isset($news) && !$news->isNew()) {
             ?>
             <input type="hidden" name="id" value="<?= $news['id'] ?>" />
-            <input type="submit" class="btn btn-primary" value="Modifier" name="modifier" />
+            <input type="submit" class="btn btn-primary" value="Modifier" name="modifier" onclick="return confirm('Valider votre choix?');" />
             <?php
         } else {
             ?>
-            <input type="submit" class="btn btn-success btn-lg" value="Ajouter" />
+            <input type="submit" class="btn btn-success btn-lg" value="Ajouter" onclick="return confirm('Valider votre choix?');"/>
             <input type="reset" class="btn btn-success btn-lg" value="Réinitialiser" />
             <?php
         }

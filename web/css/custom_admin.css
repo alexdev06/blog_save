@@ -1,0 +1,17 @@
+.navbar-custom, footer .footer-above {
+    background-color: #b51f1f;
+}
+
+footer .footer-below {
+    background-color: #910b0b;
+}
+
+a:hover, .navbar-custom .navbar-nav li a:hover {
+    color: #f4ab7a;
+}
+
+.titrepage {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+}

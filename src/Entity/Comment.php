@@ -57,9 +57,6 @@ class Comment extends Entity
 
     public function setPublished($published)
     {
-        if (!is_bool($published) || empty($published)) {
-            $this->erreurs[] = self::PUBLICATION_INVALIDE;
-        }
         $this->published = $published;
     }
 

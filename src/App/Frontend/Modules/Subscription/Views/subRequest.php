@@ -1,4 +1,4 @@
-<h2 style="text-align: center">Formulaire d'inscription</h2>
+<h2 class="titrepage">Formulaire d'inscription</h2>
 <form action="" method="post">
     <div class="form-group">
         <label for="name">Prénom :</label><br />
@@ -20,7 +20,7 @@
         <label for="password">Mot de passe :</label><br />
         <input type="password" id="password" name="password" class="form-control" /><br />
     </div>
-    <input class="btn btn-success btn-lg" type="submit" value="Envoyer" />
+    <input class="btn btn-success btn-lg" type="submit" value="Envoyer"  onclick="return confirm('Valider votre choix?');" />
     <input class="btn btn-success btn-lg" type="reset" value="Réinitialiser">
     
 </form>

@@ -2,7 +2,9 @@
 <routes>
   <route url="/" module="Home" action="index"></route>
   <route url="/news" module="News" action="fullList" ></route>
+  <route url="/news-pagined-([0-9]+)\.html" module="News" action="listPagined" vars="page"></route>
   <route url="/news-([0-9]+)\.html" module="News" action="show" vars="id"></route>
   <route url="/comment-news-([0-9]+)\.html" module="News" action="insertComment" vars="news"></route>
   <route url="/subscription" module="Subscription" action="subRequest"></route>
+  <route url="/connexion" module="Connexion" action="identification"></route>
 </routes>

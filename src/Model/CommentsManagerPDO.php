@@ -7,10 +7,25 @@ class CommentsManagerPDO extends CommentsManager
 {
     public function getListOf($news_id)
     {
-        $q = $this->dao->prepare('SELECT id, news_id, author, content, date_create FROM comment WHERE news_id = :news_id AND published = 1 ORDER BY date_create DESC');
-        $q->bindValue(':news_id', $news_id, \PDO::PARAM_INT);
+        $q = $this->dao->prepare('SELECT id, news_id, author, content, date_create, published FROM comment WHERE news_id = :news_id');
+        $q->bindValue(':news_id', $news_id);
         $q->execute();
 
+        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\Comment');
+
+        $comments = $q->fetchAll();
+
+        foreach ($comments as $comment) {
+            $comment->setDate_create(new \DateTime($comment->date_create()));
+        }
+
+        return $comments;
+    }
+
+    public function getList()
+    {
+        $q = $this->dao->query('SELECT id, news_id, author, content, date_create, published FROM comment');
+      
         $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\Comment');
 
         $comments = $q->fetchAll();
@@ -51,15 +66,18 @@ class CommentsManagerPDO extends CommentsManager
 
     }
     
-    public function get($id)
+    public function getId($id)
     {
-        $q = $this->dao->prepare('SELECT id, news_id, author, content FROM comment WHERE id = :id');
-        $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+        $q = $this->dao->prepare('SELECT id, news_id, author, content, published FROM comment WHERE id = :id');
+        $q->bindValue(':id', $id);
+        
         $q->execute();
         
-        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'blog\Entity\Comment');
+        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\Comment');
         
-        return $q->fetch();
+        $comment = $q->fetch();
+
+        return $comment;
     }
 
     public function delete($id)
@@ -67,8 +85,18 @@ class CommentsManagerPDO extends CommentsManager
         $this->dao->exec('DELETE FROM comment WHERE id = ' . (int) $id);
     }
 
-    public function validate($id)
-    {
-        $this->dao->exec('UPDATE comment SET published = 1 WHERE id = ' . (int) $id);
+    public function modifyCommentStatus($id)
+    { 
+        $comment = $this->getId($id);
+        $requete = $this->dao->prepare('UPDATE comment SET published = :published WHERE id = :id');
+        $requete->bindValue(':id', $comment->id());
+        if ($comment->published() == 0) {
+            $requete->bindValue(':published', 1);
+        } else {
+            $requete->bindValue(':published', 0);
+        }
+
+        $requete->execute();
     }
+
 }

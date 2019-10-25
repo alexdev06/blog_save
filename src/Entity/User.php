@@ -1,7 +1,7 @@
 <?php
 namespace ADABlog\Entity;
 
-use ADABlog\Fram\Entity;
+use \ADABlog\Fram\Entity;
 
 class User extends Entity
 {

@@ -15,6 +15,7 @@
 
         <!-- Theme CSS -->
         <link href="css/freelancer.min.css" rel="stylesheet">
+        <link href="css/custom_main.css" rel="stylesheet" >
 
         <!-- Custom Fonts -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -65,7 +66,7 @@
                             <?php
                             } else {
                                 ?>
-                                <a href="/admin">Connexion</a>
+                                <a href="/connexion">Connexion</a>
                                 <?php
                             }
                             ?>
@@ -88,7 +89,7 @@
 
 
         <!-- Content Section -->
-        <section>
+        <section class="main" style="margin-top : 40px">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 mt-5">

@@ -6,11 +6,11 @@ use ADABlog\Entity\Comment;
 
 abstract class CommentsManager extends Manager
 {
-    abstract public function get($id);
+    abstract public function getId($id);
     abstract public function getListOf($news_id);
     abstract public function getListOfUnpublished();
     abstract public function add(Comment $comment);
-    abstract public function validate($id);
+    abstract public function modifyCommentStatus($id);
     abstract public function delete($id);
 
     public function save(Comment $comment)

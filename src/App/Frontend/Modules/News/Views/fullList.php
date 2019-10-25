@@ -1,4 +1,4 @@
-<h2 style="text-align: center"><?= $title ?></h2>
+<h2 class="titrepage"><?= $title ?></h2>
 <?php
 foreach ($listeNews as $news) {
     ?>

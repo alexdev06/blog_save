@@ -25,7 +25,6 @@ class News extends Entity
     // SETTERS //
 
     
-
     public function setAuthor($author)
     {
         if (!is_string($author) || empty($author)) {
@@ -43,8 +42,6 @@ class News extends Entity
 
         $this->title = $title;
     }
-
-   
 
     public function setContent($content)
     {
@@ -79,9 +76,7 @@ class News extends Entity
     {
         return $this->title;
     }
-
-    
-
+ 
     public function content()
     {
         return $this->content;
