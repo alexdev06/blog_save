@@ -7,7 +7,7 @@ class NewsManagerPDO extends NewsManager
 {
     public function getList($debut = -1, $limite = -1)
     {
-        $sql = 'SELECT id , author, title, content, date_create, date_update FROM News ORDER BY date_create DESC';
+        $sql = 'SELECT id, author, title, content, date_create, date_update FROM news ORDER BY date_create DESC';
 
         if ($debut != -1 || $limite != -1) {
             $sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
@@ -32,7 +32,7 @@ class NewsManagerPDO extends NewsManager
     {
         $limite = 5;
         $debut = ($page - 1) * $limite;
-        $sql = 'SELECT id , author, title, content, date_create, date_update FROM News ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
+        $sql = 'SELECT id , author, title, content, date_create, date_update FROM news ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
         $requete = $this->dao->prepare($sql);
         
         $requete->bindValue(':limit', $limite, \PDO::PARAM_INT);

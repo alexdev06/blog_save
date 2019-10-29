@@ -15,7 +15,7 @@ class ConnexionController extends BackController
             $login = $request->postData('login');
             $password = $request->postData('password');
 
-            $manager = $this->managers->getManagerOf('users');
+            $manager = $this->managers->getManagerOf('Users');
             $user = $manager->get($login);
 
             $isPasswordCorrect = password_verify($password, $user->password());
