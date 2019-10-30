@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
+        <meta name="description" content="Frontend">
         <meta name="author" content="Alex">
 
         <title><?= $title ?></title>
@@ -28,6 +28,7 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
 
     <body id="page-top" class="index">
@@ -170,6 +171,8 @@
         <script src="js/jqBootstrapValidation.js"></script>
         <script src="js/contact_me.js"></script>
 
+        <!-- reCAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <!-- Theme JavaScript -->
         <script src="js/freelancer.min.js"></script>
 

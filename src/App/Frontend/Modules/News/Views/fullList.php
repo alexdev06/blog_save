@@ -1,4 +1,5 @@
 <h2 class="titrepage"><?= $title ?></h2>
+
 <?php
 foreach ($listeNews as $news) {
     ?>

@@ -11,6 +11,4 @@ class HomeController extends BackController
         $this->page->addvar('title', 'Accueil');
     }
 
-
-
 }
