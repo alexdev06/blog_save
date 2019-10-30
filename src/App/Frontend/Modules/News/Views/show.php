@@ -1,6 +1,6 @@
 <h3><?= $title ?></h3>
 <p>Par <em><?= $news['author'] ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
-<p><?= nl2br($news['content']) ?></p>
+<p><?= nl2br(htmlspecialchars($news['content'])) ?></p>
 
 <?php if ($news['date_create'] != $news['date_update']) { ?>
   <p style="text-align: right;"><small><em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em></small></p>
@@ -19,7 +19,7 @@ foreach ($comments as $comment) {
   ?>
   <fieldset>
     <legend>
-      Posté par <strong><?= htmlspecialchars($comment['author']) ?> </strong> le <?= $comment['date_create']->format('d/m/Y à H\hi') ?>
+      Posté par <strong><?= nl2br(htmlspecialchars($comment['author'])) ?> </strong> le <?= $comment['date_create']->format('d/m/Y à H\hi') ?>
     </legend>
     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
 </fieldset>

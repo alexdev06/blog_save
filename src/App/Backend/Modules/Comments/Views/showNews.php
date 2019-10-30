@@ -12,7 +12,7 @@
 <?php
 foreach ($comments as $comment)
 {
-  echo '<tr><td>', $comment['author'], '</td><td>', $comment['content'], '</td><td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td><td><a href="admin-comments-validate-', $comment['id'], '.html">Valider</a><br /> <a href="admin-comments-delete-', $comment['id'], '.html">Supprimer</a></td></tr>', "\n";
+  echo '<tr><td>', $comment['author'], '</td><td>', nl2br(htmlspecialchars($comment['content'])), '</td><td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td><td><a href="admin-comments-validate-', $comment['id'], '.html">Valider</a><br /> <a href="admin-comments-delete-', $comment['id'], '.html">Supprimer</a></td></tr>', "\n";
 }
 ?>
 </tbody>
