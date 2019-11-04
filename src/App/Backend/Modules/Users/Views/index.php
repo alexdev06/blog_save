@@ -19,7 +19,7 @@ foreach ($listeUsers as $user)
     } else {
         $user['member_status'] = 'en attente';
     }
-    echo '<tr><td>', $user['name'], '</td><td>', $user['last_name'], '</td><td>', $user['username'],'</td><td>', $user['email'],'</td><td>', $user['member_status'], '</td><td><a href="admin-users-update-', $user['id'], '.html">Modifier</a><br /> <a href="admin-users-delete-', $user['id'], '.html" onclick="return confirm(\'Valider votre choix ?\');">Supprimer</a></td></tr>', "\n";
+    echo '<tr><td>', $user['name'], '</td><td>', $user['last_name'], '</td><td>', $user['username'],'</td><td>', $user['email'],'</td><td>', $user['member_status'], '</td><td><a href="admin-users-update-', $user['id'], '">Modifier</a><br /> <a href="admin-users-delete-', $user['id'], '" onclick="return confirm(\'Valider votre choix ?\');">Supprimer</a></td></tr>', "\n";
 }
 ?>
 </tbody>

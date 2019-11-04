@@ -9,7 +9,7 @@
 <?php
 foreach ($listeNews as $news)
 {
-  echo '<tr><td>', $news['author'], '</td><td>', nl2br(htmlspecialchars($news['title'])), '</td><td>le ', $news['date_create']->format('d/m/Y à H\hi'), '</td><td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : 'le '.$news['date_update']->format('d/m/Y à H\hi')), '</td><td><a href="admin-news-update-', $news['id'], '.html">Modifier</a><br /> <a href="admin-news-delete-', $news['id'], '.html" onclick="return confirm(\'Valider votre choix?\');"">Supprimer</a><br /> <a href="news-', $news['id'], '.html">Consulter</a><br /><a href="admin-comments-news-', $news['id'], '.html">Commentaires</a></td></tr>', "\n";
+  echo '<tr><td>', $news['author'], '</td><td>', nl2br(htmlspecialchars($news['title'])), '</td><td>le ', $news['date_create']->format('d/m/Y à H\hi'), '</td><td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : 'le '.$news['date_update']->format('d/m/Y à H\hi')), '</td><td><a href="admin-news-update-', $news['id'], '">Modifier</a><br /> <a href="admin-news-delete-', $news['id'], '" onclick="return confirm(\'Valider votre choix?\');"">Supprimer</a><br /> <a href="news-', $news['id'], '">Consulter</a><br /><a href="admin-comments-news-', $news['id'], '">Commentaires</a></td></tr>', "\n";
 }
 ?>
 </table>

@@ -19,7 +19,7 @@ foreach ($comments as $comment)
     } else {
         $comment['published'] = 'masqué';
     }
-    echo '<tr><td>', $comment['author'], '</td><td>', $comment['news_id'], '</td><td>', nl2br(htmlspecialchars($comment['content'])), '</td><td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td><td>' . $comment['published'] . '</td><td><a href="admin-comments-update-', $comment['id'], '.html">Modifier</a><br /> <a onclick="return confirm(\'Valider votre choix?\');" href="admin-comments-delete-', $comment['id'], '.html ">Supprimer</a></td></tr>', "\n";
+    echo '<tr><td>', $comment['author'], '</td><td>', $comment['news_id'], '</td><td>', nl2br(htmlspecialchars($comment['content'])), '</td><td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td><td>' . $comment['published'] . '</td><td><a href="admin-comments-update-', $comment['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider votre choix?\');" href="admin-comments-delete-', $comment['id'], '">Supprimer</a></td></tr>', "\n";
 }
 ?>
   </tbody>

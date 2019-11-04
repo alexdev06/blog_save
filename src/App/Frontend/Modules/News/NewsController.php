@@ -27,7 +27,7 @@ class NewsController extends BackController
         $this->page->addVar('listeNews', $listeNews);
     }
 
-    public function executeListPagined(HTTPRequest $request)
+    public function executeNewsPages(HTTPRequest $request)
     {
         $charactersLength = $this->app->config()->get('characters_length');
         $this->page->addvar('title', 'Les news');

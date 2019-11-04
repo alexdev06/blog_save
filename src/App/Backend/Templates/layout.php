@@ -51,7 +51,7 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a href="/admin-news-insert.html">Ajouter une news</a>
+                            <a href="/admin-news-insert">Ajouter une news</a>
                         </li>
                         <li>
                             <a href="/admin-news">Les news</a>
@@ -72,7 +72,7 @@
                         if ($this->app->visitor()->isAuthenticated() == true) {
                             ?>
                             <li>
-                                <a href="/admin-destroy">Deconnexion</a>
+                                <a href="/admin-disconnect">Deconnexion</a>
                             </li>
                             <?php
                         }

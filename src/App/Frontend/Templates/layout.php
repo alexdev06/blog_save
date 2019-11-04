@@ -54,7 +54,7 @@
                             <a href="/">Accueil</a>
                         </li>
                         <li>
-                            <a href="/news">Les news</a>
+                            <a href="/news-page-1">Les news</a>
                         </li>
                         <li>
                             <a href="/inscription">Inscription</a>
@@ -76,7 +76,7 @@
                         if ($this->app->visitor()->isAuthenticated() == true) {
                             ?>
                             <li>
-                                <a href="/admin-destroy">Deconnexion</a>
+                                <a href="/disconnection">Deconnexion</a>
                             </li>
                             <?php
                         }

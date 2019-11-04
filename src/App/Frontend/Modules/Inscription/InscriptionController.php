@@ -13,7 +13,7 @@ class InscriptionController extends BackController
 
         if ($request->postExists('username')) {
             // reCAPTCHA
-            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+           /* $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
             
@@ -24,7 +24,7 @@ class InscriptionController extends BackController
             
             $decode = json_decode(file_get_contents($api_url), true);
         
-            if ($decode['success'] == true) {
+            if ($decode['success'] == true) {*/
                 $pass = $request->postData('password');
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
                 
@@ -35,9 +35,14 @@ class InscriptionController extends BackController
                     'email' => $request->postData('email'),
                     'password' => $pass,
                 ]);
-    
-                 $this->managers->getManagerOf('Users')->add($user);
-            }
+                $pseudo = $this->managers->getManagerOf('Users')->get($user->username());
+                if (isset($pseudo) && $pseudo != false) {
+                   die('Le nom d\'utilisateur existe déjà!');
+                } else {
+                    $this->managers->getManagerOf('Users')->add($user);
+                }
+                
+            //}
 
         }
 

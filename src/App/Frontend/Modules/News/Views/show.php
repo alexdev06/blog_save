@@ -6,7 +6,7 @@
   <p style="text-align: right;"><small><em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em></small></p>
 <?php } ?>
 
-<p><a href="comment-news-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+<p><a href="comment-news-<?= $news['id'] ?>">Ajouter un commentaire</a></p>
 
 <?php
 if (empty($comments)) {
@@ -27,4 +27,4 @@ foreach ($comments as $comment) {
 }
 ?>
 
-<p><a href="comment-news-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+<p><a href="comment-news-<?= $news['id'] ?>">Ajouter un commentaire</a></p>

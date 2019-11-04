@@ -13,7 +13,7 @@ class ConnexionController extends BackController
 
         if ($request->postExists('login')) {
             // reCAPTCHA
-            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+            /*$secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
             
@@ -24,7 +24,7 @@ class ConnexionController extends BackController
             
             $decode = json_decode(file_get_contents($api_url), true);
         
-            if ($decode['success'] == true) {
+            if ($decode['success'] == true) {*/
                 $login = $request->postData('login');
                 $password = $request->postData('password');
 
@@ -48,11 +48,11 @@ class ConnexionController extends BackController
                     $this->app->visitor()->setFlash('Pseudo ou mot de passe incorrect');
                     $this->app->httpResponse()->redirect('/connexion');
                 }
-            }
+            //}
         }
     }
 
-    public function executeDestroy(HTTPRequest $request)
+    public function executeDisconnect(HTTPRequest $request)
     {
         $_SESSION = array();
         session_destroy();

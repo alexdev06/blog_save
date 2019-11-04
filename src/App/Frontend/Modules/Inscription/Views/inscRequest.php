@@ -21,10 +21,11 @@
         <label for="password">Mot de passe :</label><br />
         <input type="password" id="password" name="password" class="form-control" /><br />
     </div>
+    <!--
     <div class="form-group">
         <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm
         "></div>
-    </div>
+    </div>-->
     <div class="form-group">
         <input class="btn btn-success btn-lg" type="submit" value="Envoyer"  onclick="return confirm('Valider votre choix?');" />
         <input class="btn btn-success btn-lg" type="reset" value="Réinitialiser">
