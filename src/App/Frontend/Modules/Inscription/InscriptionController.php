@@ -11,7 +11,7 @@ class InscriptionController extends BackController
     {
         $this->page->addVar('title', 'Ajout d\'un utilisateur');
 
-        if ($request->postExists('username')) {
+        if ($request->postExists('login')) {
             // reCAPTCHA
            /* $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
@@ -30,8 +30,8 @@ class InscriptionController extends BackController
                 
                 $user = new User([
                     'name' => $request->postData('name'),
-                    'last_name' => $request->postData('last_name'),
-                    'username' => $request->postData('username'),
+                    'last_name' => $request->postData('lastName'),
+                    'username' => $request->postData('login'),
                     'email' => $request->postData('email'),
                     'password' => $pass,
                 ]);
