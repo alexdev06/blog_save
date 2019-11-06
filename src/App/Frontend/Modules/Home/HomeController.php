@@ -8,7 +8,8 @@ class HomeController extends BackController
 {
     public function executeIndex(HTTPRequest $request)
     {
-        $this->page->addvar('title', 'Accueil');
+        $this->page->addVar('title', 'Accueil');
+        $this->page->addVar('visitor', $this->app->visitor());
     }
 
 }

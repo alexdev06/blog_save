@@ -8,3 +8,10 @@
     box-sizing: content-box !important; 
     margin: auto !important;
 }
+
+.flash {
+    font-weight: bold;
+    color: red;
+    size: 1.4em;
+    text-align: center;
+}

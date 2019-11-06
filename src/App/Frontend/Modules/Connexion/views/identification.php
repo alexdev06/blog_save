@@ -1,4 +1,11 @@
 <h2 class="titrepage">Connexion</h2>
+<?php
+if ($visitor->hasFlash()) {
+    ?>
+    <p class="flash"> <?= $visitor->getFlash(); ?> </p>
+    <?php
+}
+?>
     <form  action="" method="post">
         <div class="row form-group">
             <label class="col-xs-4 col-xs-offset-4" for="login">Pseudo :</label><br />
