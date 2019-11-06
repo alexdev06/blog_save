@@ -72,6 +72,19 @@ class UsersManagerPDO extends UsersManager
         $requete->execute();
     }
 
+    public function getEmail($email)
+    {
+        $q = $this->dao->prepare('SELECT email FROM user WHERE email = :email');
+        $q->bindValue(':email',$email);
+
+        $q->execute();
+        
+        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\User');
+        $email = $q->fetch();
+        
+        return $email;
+    }
+
     public function delete($id)
     {
         $this->dao->exec('DELETE FROM user WHERE id = ' . (int) $id);

@@ -1,4 +1,11 @@
 <h2 class="titrepage">Inscription</h2>
+<?php
+if ($visitor->hasFlash()) {
+    ?>
+    <p class="flash"> <?= $visitor->getFlash(); ?> </p>
+    <?php
+}
+?>
 
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
@@ -39,7 +46,14 @@
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Confirmez le mot de passe</label>
+                            <input type="password" name="passCheck" class="form-control" placeholder="Confirmer le mot de passe" id="passCheck" required data-validation-required-message="Confirmez votre mot de passe.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
                     <br>
                     <div id="success"></div>
                     <div class="row">

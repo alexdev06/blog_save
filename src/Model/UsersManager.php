@@ -11,4 +11,5 @@ abstract class UsersManager extends Manager
     abstract public function getList();
     abstract public function modifyMemberStatus(User $user);
     abstract public function delete($id);
+    abstract public function getEmail($email);
 }
