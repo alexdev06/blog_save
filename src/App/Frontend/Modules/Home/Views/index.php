@@ -1,3 +1,10 @@
+<?php
+if ($visitor->hasFlash()) {
+    ?>
+    <p class="flash"> <?= $visitor->getFlash(); ?> </p>
+    <?php
+}
+?>
 <header>
     <div class="container">
         <div class="row">
