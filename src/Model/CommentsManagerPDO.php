@@ -22,6 +22,23 @@ class CommentsManagerPDO extends CommentsManager
         return $comments;
     }
 
+    public function getListPublishedOf($news_id)
+    {
+        $q = $this->dao->prepare('SELECT id, news_id, author, content, date_create, published FROM comment WHERE news_id = :news_id AND published = 1');
+        $q->bindValue(':news_id', $news_id);
+        $q->execute();
+
+        $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\Comment');
+
+        $comments = $q->fetchAll();
+
+        foreach ($comments as $comment) {
+            $comment->setDate_create(new \DateTime($comment->date_create()));
+        }
+
+        return $comments;
+    }
+
     public function getList()
     {
         $q = $this->dao->query('SELECT id, news_id, author, content, date_create, published FROM comment');

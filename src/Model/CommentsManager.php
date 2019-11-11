@@ -8,6 +8,7 @@ abstract class CommentsManager extends Manager
 {
     abstract public function getId($id);
     abstract public function getListOf($news_id);
+    abstract public function getListPublishedOf($news_id);
     abstract public function getListOfUnpublished();
     abstract public function add(Comment $comment);
     abstract public function modifyCommentStatus($id);

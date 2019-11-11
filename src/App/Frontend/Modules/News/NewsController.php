@@ -60,10 +60,11 @@ class NewsController extends BackController
         if (empty($news)) {
             $this->app->httpResponse()->redirect404();
         }
-
+        
+        $this->page->addVar('visitor', $this->app->visitor());
         $this->page->addVar('title', $news->title());
         $this->page->addVar('news', $news);
-        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($news->id()));
+        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListPublishedOf($news->id()));
     }
 
     public function executeInsertComment(HTTPRequest $request)
@@ -71,7 +72,7 @@ class NewsController extends BackController
         $this->page->addVar('title', 'Ajout d\'un commentaire');
 
 
-        if ($request->postExists('pseudo')) {
+        if ($request->postExists('pseudo')) { /*
             // reCAPTCHA
             $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
@@ -85,6 +86,7 @@ class NewsController extends BackController
             $decode = json_decode(file_get_contents($api_url), true);
         
             if ($decode['success'] == true) {
+                */
                 $comment = new Comment([
                     'news_id' => $request->getData('news'),
                     'author' => $request->postData('pseudo'),
@@ -93,13 +95,13 @@ class NewsController extends BackController
             
                 if ($comment->isValid()) {
                     $this->managers->getManagerOf('Comments')->save($comment);
-                    $this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
+                    $this->app->httpResponse()->redirect('news-'.$request->getData('news'));
                 } else {
                     $this->page->addVar('erreurs', $comment->erreurs());
                 }
 
                 $this->page->addVar('comment', $comment);
-            }
+            //}
         }
     }
 
