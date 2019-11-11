@@ -7,7 +7,7 @@ foreach ($listeNews as $news) {
     <p style="text-align: left;"><small><em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em></small></p>
     
     <p><?= nl2br(htmlspecialchars($news['content'])) ?> <a href="news-<?= $news['id'] ?>">lire la suite</a></p>
-    
+    <hr />
     <?php
 }
 ?>
@@ -21,10 +21,16 @@ foreach ($listeNews as $news) {
     ?>
 
     <?php
-    for ($i = 1; $i <= $totalPages; $i++) {
-        ?><a href="news-page-<?php echo $i; ?>" ><?php echo $i; ?></a> 
-        <?php
-    }
+        for ($i = 1; $i <= $totalPages; $i++) {
+            if ($i == $page) {
+                ?><a style="color: #2c3e50" href="news-page-<?php echo $i; ?>"><?php echo '[',$i,']'; ?></a>
+                <?php 
+            } else {
+                ?><a href="news-page-<?php echo $i ;?>" ><?php echo $i; ?></a> 
+                <?php
+            }?>
+            <?php
+        }
     ?>
 
     <?php

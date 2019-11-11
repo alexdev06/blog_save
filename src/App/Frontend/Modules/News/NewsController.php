@@ -35,6 +35,13 @@ class NewsController extends BackController
         $this->page->addVar('page',$request->getData('page'));
 
         $manager = $this->managers->getManagerOf('News');
+
+        $totalNews = $manager->count();
+        $totalPages = ceil($totalNews / 5);
+
+        if ($request->getData('page') > $totalPages) {
+            $this->app->httpResponse()->redirect404();
+        }
         $listeNews = $manager->getListPagined($request->getData('page'));
 
         foreach ($listeNews as $news) {
@@ -45,8 +52,7 @@ class NewsController extends BackController
                 $news->setContent($outset);
             }
         }
-        $totalNews = $manager->count();
-        $totalPages = ceil($totalNews / 5);
+
 
         $this->page->addVar('totalPages', $totalPages);
         $this->page->addVar('listeNews', $listeNews);
