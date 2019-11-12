@@ -3,6 +3,9 @@ namespace ADABlog\App\Frontend\Modules\Home;
 
 use ADABlog\Fram\BackController;
 use ADABlog\Fram\HTTPRequest;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class HomeController extends BackController
 {
@@ -10,6 +13,53 @@ class HomeController extends BackController
     {
         $this->page->addVar('title', 'Accueil');
         $this->page->addVar('visitor', $this->app->visitor());
+
+        // Check for empty fields
+        if (empty($request->postData('name'))  		||
+        empty($request->postData('last_name'))  ||
+        empty($request->postData('email')) 		||
+        empty($request->postData('message'))	||
+        !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+        {
+            echo "No arguments Provided!";
+            return false;
+        }
+            
+        $name = strip_tags(htmlspecialchars($request->postData('name')));
+        $lastName = strip_tags(htmlspecialchars($request->postData('last_name')));
+        $email_address = strip_tags(htmlspecialchars($request->postData('email')));
+        $message = strip_tags(htmlspecialchars($request->postData('message')));
+            
+        // Create the email and send the message
+        $to = 'yourname@yourdomain.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+        $email_subject = "Website Contact Form:  $name $lastName";
+        $email_body = "Vous avez reçu un nouveau message de contact en provenance de votre site.\n\n"."Les détails:\n\nPrénom: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+        $headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+        $headers .= "Reply-To: $email_address";	
+
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.ionos.fr';                    // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'contact@alexandremanteaux.fr';                     // SMTP username
+        $mail->Password   = '13021981Azer;';                               // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+        $mail->Port       = 587;                                    // TCP port to connect to
+        $mail->setFrom($email_address);
+        $mail->addAddress('contact@alexandremanteaux.fr');
+        // $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $email_subject;
+        $mail->Body    = $email_body;
+        $mail->send();
+        $mail->ClearAddresses();
+
+        $mail->addAddress($email_address);
+        // $mail->isHTML(true);
+        $mail->setFrom('noreply@alexandremanteaux.fr');
+        $mail->Subject = 'Votre demande a bien été prise en compte';
+        $mail->Body    = 'Vous serez contacté dans les plus brefs délais';
+        $mail->send();
     }
 
 }
