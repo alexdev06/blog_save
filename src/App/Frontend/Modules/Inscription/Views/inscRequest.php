@@ -1,4 +1,4 @@
-<div class="bloc-page">
+<div class="page-title">
     <h2><?= $title ?></h2>
     <hr class="star-primary">
 </div>

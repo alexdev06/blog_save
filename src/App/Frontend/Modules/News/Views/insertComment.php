@@ -1,8 +1,11 @@
-<h2 class="titrepage"><?= $title ?></h2>
+<div class="page-title">
+    <h2><?= $title ?></h2>
+    <hr class="star-primary">
+</div>
 
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
-        <form action="" method="post" novalidate>
+        <form action="" method="post">
             <div class="row control-group">
                 <div class="form-group col-xs-12 floating-label-form-group controls">
                     <label>Pseudo</label>
