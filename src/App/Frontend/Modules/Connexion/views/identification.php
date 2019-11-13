@@ -1,4 +1,7 @@
-<h2 class="titrepage">Connexion</h2>
+<div class="bloc-page">
+    <h2><?= $title ?></h2>
+    <hr class="star-primary">
+</div>
 <?php
 if ($visitor->hasFlash()) {
     ?>
@@ -7,32 +10,31 @@ if ($visitor->hasFlash()) {
 }
 ?>
     <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <form action="" method="post" novalidate>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Login</label>
-                            <input type="text" name="login" class="form-control" placeholder="Login" id="login" required data-validation-required-message="Entrez votre login.">
-                            <p class="help-block text-danger"></p>
-                        </div>
+        <div class="col-lg-8 col-lg-offset-2">
+            <form action="" method="post">
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Login</label>
+                        <input type="text" name="login" class="form-control" placeholder="Login" id="login" required data-validation-required-message="Entrez votre login.">
+                        <p class="help-block text-danger"></p>
                     </div>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Mot de passe</label>
-                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" id="password" required data-validation-required-message="Entrez votre mot de passe.">
-                            <p class="help-block text-danger"></p>
-                        </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Mot de passe</label>
+                        <input type="password" name="password" class="form-control" placeholder="Mot de passe" id="password" required data-validation-required-message="Entrez votre mot de passe.">
+                        <p class="help-block text-danger"></p>
                     </div>
-                    
-                    <br>
-                    <div id="success"></div>
-                    <div class="row">
-                        <div class="form-group col-xs-6">
-                            <button type="submit" class="btn btn-success btn-lg">Se connecter</button>
-                        </div>
+                </div>
+                
+                <br>
+                <div id="success"></div>
+                <div class="row">
+                    <div class="form-group col-xs-6">
+                        <button type="submit" class="btn btn-success btn-lg">Se connecter</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
     <!--

@@ -1,4 +1,8 @@
-<h2 class="titrepage"><?= $title ?></h2>
+<div class="bloc-page">
+    <h2><?= $title ?></h2>
+    <hr class="star-primary">
+</div>
+
 <?php
 foreach ($listeNews as $news) {
     ?>

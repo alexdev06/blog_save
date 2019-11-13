@@ -64,7 +64,7 @@ if ($visitor->hasFlash()) {
                     <div id="success"></div>
                     <div class="row">
                         <div class="form-group col-xs-6">
-                            <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
+                            <button type="submit" class="btn btn-success btn-lg" onclick="return confirm('Valider votre choix?');" >Envoyer</button>
                         </div>
                         <div class="form-group col-xs-6">
                             <button type="reset" class="btn btn-success btn-lg">Réinitialiser</button>

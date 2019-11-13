@@ -9,7 +9,7 @@ class InscriptionController extends BackController
 {
     public function executeInscRequest(HTTPRequest $request)
     {
-        $this->page->addVar('title', 'Ajout d\'un utilisateur');
+        $this->page->addVar('title', 'Inscription');
         $this->page->addVar('visitor', $this->app->visitor());
 
         if ($request->postExists('login')) {
