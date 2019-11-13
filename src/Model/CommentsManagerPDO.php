@@ -24,7 +24,7 @@ class CommentsManagerPDO extends CommentsManager
 
     public function getListPublishedOf($news_id)
     {
-        $q = $this->dao->prepare('SELECT id, news_id, author, content, date_create, published FROM comment WHERE news_id = :news_id AND published = 1');
+        $q = $this->dao->prepare('SELECT id, news_id, author, content, date_create, published FROM comment WHERE news_id = :news_id AND published = 1 ORDER BY date_create DESC');
         $q->bindValue(':news_id', $news_id);
         $q->execute();
 
