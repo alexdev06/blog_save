@@ -4,6 +4,12 @@
 </div>
 
 <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">  
+        <p class="lead">Pour ajouter un commentaire à l'article, saisissez votre pseudo et votre message. Les commentaires sont soumis à validation et ne seront donc publiés qu'après validation par un administrateur du site.</p>
+    </div>
+</div>
+<br/>
+<div class="row">
     <div class="col-lg-8 col-lg-offset-2">
         <form action="" method="post">
             <div class="row control-group">
@@ -17,6 +23,12 @@
                     <label>Commentaire</label>
                     <textarea rows="5" name="message" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Entrez votre commentaire."></textarea>
                     <p class="help-block text-danger"></p>
+                </div>
+            </div>
+            <br />
+            <div class="row form-group">
+                <div class="form-group col-xs-4">
+                    <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
                 </div>
             </div>
             <br>

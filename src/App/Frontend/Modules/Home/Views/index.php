@@ -11,9 +11,9 @@ if ($visitor->hasFlash()) {
             <div class="col-lg-12">
                 <img class="img-responsive" src="img/profile.png" alt="">
                 <div class="intro-text">
-                    <span class="name">Start Bootstrap</span>
+                    <span class="name">Alexandre Manteaux</span>
                     <hr class="star-light">
-                    <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+                    <span class="skills">Web Developper</span>
                 </div>
             </div>
         </div>
@@ -29,8 +29,15 @@ if ($visitor->hasFlash()) {
                 <hr class="star-primary">
             </div>
         </div>
+        <br />
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-12">
+                <p class="lead">Vous souhaitez me contacter? Remplissez le formulaire ci-dessous et je vous répondrai dans les meilleurs délais.</p>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
                 <form action="" method="post">
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -58,6 +65,12 @@ if ($visitor->hasFlash()) {
                             <label>Message</label>
                             <textarea rows="5" class="form-control" name="message" placeholder="Message" id="message" required data-validation-required-message="Veuillez entrer un message."></textarea>
                             <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="form-group col-xs-4">
+                            <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
                         </div>
                     </div>
                     <br>

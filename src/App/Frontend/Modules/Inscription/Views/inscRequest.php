@@ -10,9 +10,14 @@ if ($visitor->hasFlash()) {
     <?php
 }
 ?>
-
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-12">  
+            <p class="lead">Vous souhaitez contribuer activement à la vie du blog? Poster des news et valider les commentaires?  Pour celà, remplissez le formulaire d'inscription et votre candidature sera étudiée avec le plus grand soin.</p>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
             <form action="" method="post">
                 <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -55,7 +60,12 @@ if ($visitor->hasFlash()) {
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
-
+                <br />
+                <div class="row form-group">
+                    <div class="form-group col-xs-4">
+                        <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
+                    </div>
+                </div>
                 <br>
                 <div id="success"></div>
                 <div class="row">
@@ -70,38 +80,3 @@ if ($visitor->hasFlash()) {
         </div>
     </div>
 </div>
-<!--    
-<div class="col-xs-12 col-sm-8 col-lg6">
-<form action="" method="post">
-    <div class="form-group">
-        <label for="name">Prénom :</label><br />
-        <input type="text" id="name" name="name" class="form-control"/><br />
-    </div>
-    <div class="form-group">
-        <label for="last_name">Nom :</label><br />
-        <input type="text" id="last_name" name="last_name" class="form-control" /><br />
-    </div>
-    <div class="form-group">
-        <label for="username">Pseudo :</label><br />
-        <input type="text" id="username" name="username" class="form-control" /><br />
-    </div>
-    <div class="form-group">
-        <label for="email">Email :</label><br />
-        <input type="email" id="email" name="email"  class="form-control"/><br />
-    </div>
-    <div class="form-group">
-        <label for="password">Mot de passe :</label><br />
-        <input type="password" id="password" name="password" class="form-control" /><br />
-    </div>
-    
-    <div class="form-group">
-        <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm
-        "></div>
-    </div>
-    <div class="form-group">
-        <input class="btn btn-success btn-lg" type="submit" value="Envoyer"  onclick="return confirm('Valider votre choix?');" />
-        <input class="btn btn-success btn-lg" type="reset" value="Réinitialiser">
-    </div>
-    
-</form>
-</div>-->

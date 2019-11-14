@@ -8,7 +8,16 @@ if ($visitor->hasFlash()) {
     <p class="flash"> <?= $visitor->getFlash(); ?> </p>
     <?php
 }
-?>
+?>  
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <p>L'accès à l'interface d'adminstration du site est réservé aux utilisateurs inscrits et validés.</p>
+        </div>
+    </div>
+    <div class="row">
+        <h3 class="col-lg-8 col-lg-offset-2 text-center">Veuillez entrer votre identifiant et votre mot de passe :</h3>
+    </div>
+    <br />
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <form action="" method="post">
@@ -26,7 +35,12 @@ if ($visitor->hasFlash()) {
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
-                
+                <br />
+                <div class="row form-group">
+                    <div class="form-group col-xs-4">
+                        <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
+                    </div>
+                </div>
                 <br>
                 <div id="success"></div>
                 <div class="row">
